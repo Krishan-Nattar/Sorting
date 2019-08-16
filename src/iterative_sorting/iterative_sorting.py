@@ -27,14 +27,39 @@ def selection_sort(arr):
     return arr
 
 
-print(selection_sort(num_array))
+# print(selection_sort(num_array))
 
 
 # TO-DO:  implement the Bubble Sort function below
 def bubble_sort(arr):
+    # index = 0
+    loop = True
+    count = 0
+
+    while loop:
+        count = 0
+        for i in range(0, len(arr)-1):
+            if arr[i] > arr[i+1]:
+                hold_value = arr[i]
+                arr[i] = arr[i+1]
+                arr[i+1] = hold_value
+                count += 1
+        if count == 0:
+            loop = False
+
+    # select item
+
+    # check current value vs the next item
+
+    # if second item is smaller, switch the values
+
+    # move onto the next item
+
+    # repeat
 
     return arr
-
+# print(num_array)
+print(bubble_sort(num_array))
 
 # STRETCH: implement the Count Sort function below
 def count_sort(arr, maximum=-1):
