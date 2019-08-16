@@ -29,14 +29,15 @@ def merge(arrA, arrB):
     return merged_arr
 
 
-arr1 = [1, 3, 5, 7, 9, 11, 14, 16, 111, 245, 667]
-arr2 = [2, 4, 9, 10, 22, 44, 55, 66, 77, 88, 99, 204, 302]
+arr1 = [2]
+arr2 = [1,3]
 
 print(merge(arr1, arr2))
 
 
 # TO-DO: implement the Merge Sort function below USING RECURSION
 def merge_sort(arr):
+
     # TO-DO
     # if array is more than one, split it in half
 
