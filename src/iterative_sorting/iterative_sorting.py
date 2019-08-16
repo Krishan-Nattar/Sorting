@@ -59,9 +59,32 @@ def bubble_sort(arr):
 
     return arr
 # print(num_array)
-print(bubble_sort(num_array))
+# print(bubble_sort(num_array))
 
+num_array2 = [1,4,1,2,7,5,2]
 # STRETCH: implement the Count Sort function below
+
+
+
+# [[0, 0], [1, 2], [2, 2], [3, 0], [4, 1], [5, 1], [6, 0], [7, 1]]
+
+
 def count_sort(arr, maximum=-1):
+    maximum = max(arr)
+    count_array = []
+    return_arr = []
+    # print(maximum)
+    for i in range(0, maximum +1):
+        count = arr.count(i)
+        count_array.append([i, count])
+    for i in count_array:
+        while i[1] > 0:
+            return_arr.append(i[0])
+            i[1] -= 1
+
+    # print(count_array)
+    # print(return_arr)
 
     return arr
+
+# count_sort(num_array)
