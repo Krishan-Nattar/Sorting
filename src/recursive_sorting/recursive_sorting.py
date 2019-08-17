@@ -7,17 +7,9 @@ def merge(arrA, arrB):
     array_2_index = 0
     merged_array_iterator = 0
 
-    while merged_array_iterator < elements:
-        if array_1_index < len(arrA) and array_2_index < len(arrB):
-            if arrA[array_1_index] < arrB[array_2_index]:
-                merged_arr[merged_array_iterator] = arrA[array_1_index]
-                merged_array_iterator += 1
-                array_1_index += 1
-            else:
-                merged_arr[merged_array_iterator] = arrB[array_2_index]
-                merged_array_iterator += 1
-                array_2_index += 1
-        elif array_1_index < len(arrA):
+    # while merged_array_iterator < elements:
+    while array_1_index < len(arrA) and array_2_index < len(arrB):
+        if arrA[array_1_index] < arrB[array_2_index]:
             merged_arr[merged_array_iterator] = arrA[array_1_index]
             merged_array_iterator += 1
             array_1_index += 1
@@ -25,31 +17,67 @@ def merge(arrA, arrB):
             merged_arr[merged_array_iterator] = arrB[array_2_index]
             merged_array_iterator += 1
             array_2_index += 1
+    while array_1_index < len(arrA):
+        merged_arr[merged_array_iterator] = arrA[array_1_index]
+        merged_array_iterator += 1
+        array_1_index += 1
+    while array_2_index < len(arrB):
+        merged_arr[merged_array_iterator] = arrB[array_2_index]
+        merged_array_iterator += 1
+        array_2_index += 1
 
     return merged_arr
 
 
-arr1 = [2]
-arr2 = [1,3]
+arr1 = [2,4,6,8,10,12,14,16]
+arr2 = [1,3,7,4,5]
 
 print(merge(arr1, arr2))
 
 
+
 # TO-DO: implement the Merge Sort function below USING RECURSION
 def merge_sort(arr):
+    # print("Start here")
+    print(arr)
+    if len(arr)>1:
 
-    # TO-DO
-    # if array is more than one, split it in half
+        middle = int(len(arr)/2)
 
-    # left array = something
-    # right array = something else
+        array_left = arr[:middle]
+        array_right = arr[middle:]
 
-    # sort the first half
-    # sort the second half   THESE TWO ARE RECURSIVE... The are essentially called back into the merge_sort function
+        merge_sort(array_left)
+        merge_sort(array_right)
 
-    # if the length of the data sent back is less than 2, don't run the recursion
+        array_1_index = 0
+        array_2_index = 0
+        merged_array_iterator = 0
 
-    return arr
+        while array_1_index < len(array_left) and array_2_index < len(array_right):
+            if array_left[array_1_index] < array_right[array_2_index]:
+                arr[merged_array_iterator] = array_left[array_1_index]
+                merged_array_iterator += 1
+                array_1_index += 1
+            else:
+                arr[merged_array_iterator] = array_right[array_2_index]
+                merged_array_iterator += 1
+                array_2_index += 1
+        while array_1_index < len(array_left):
+            arr[merged_array_iterator] = array_left[array_1_index]
+            merged_array_iterator += 1
+            array_1_index += 1
+        while array_2_index < len(array_right):
+            arr[merged_array_iterator] = array_right[array_2_index]
+            merged_array_iterator += 1
+            array_2_index += 1
+    print(arr)
+
+    # return arr
+
+# merge_sort(arr2)
+# print(arr2)
+
 
 
 # STRETCH: implement an in-place merge sort algorithm
@@ -70,3 +98,4 @@ def merge_sort_in_place(arr, l, r):
 def timsort(arr):
 
     return arr
+
