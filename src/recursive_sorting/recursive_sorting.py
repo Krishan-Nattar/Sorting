@@ -7,7 +7,6 @@ def merge(arrA, arrB):
     array_2_index = 0
     merged_array_iterator = 0
 
-    # while merged_array_iterator < elements:
     while array_1_index < len(arrA) and array_2_index < len(arrB):
         if arrA[array_1_index] < arrB[array_2_index]:
             merged_arr[merged_array_iterator] = arrA[array_1_index]
@@ -29,18 +28,18 @@ def merge(arrA, arrB):
     return merged_arr
 
 
-arr1 = [2,4,6,8,10,12,14,16]
+# arr1 = [2,4,6,8,10,12,14,16]
 arr2 = [1,3,7,4,5]
 
-print(merge(arr1, arr2))
+# print(merge(arr1, arr2))
 
-
+# Am I supposed to use the helper array in the merge_sort function?! Because I can't figure that out
 
 # TO-DO: implement the Merge Sort function below USING RECURSION
 def merge_sort(arr):
-    # print("Start here")
-    print(arr)
+    # print("Top:\n" + str(arr))
     if len(arr)>1:
+        # print("Second\n" + str(arr))
 
         middle = int(len(arr)/2)
 
@@ -71,12 +70,12 @@ def merge_sort(arr):
             arr[merged_array_iterator] = array_right[array_2_index]
             merged_array_iterator += 1
             array_2_index += 1
-    print(arr)
 
-    # return arr
 
-# merge_sort(arr2)
-# print(arr2)
+    return arr
+arr3 = [10,9,8,7,1,2,5,6,7,4,2,0]
+merge_sort(arr3)
+print("Final array: " +str(arr3))
 
 
 
