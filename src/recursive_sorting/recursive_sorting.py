@@ -77,24 +77,24 @@ print("Final array: " +str(arr3))
 # STRETCH: implement an in-place merge sort algorithm
 
 def merge_sort_in_place(arr):
-    skip = 1  
-    while skip <= len(arr):  
+    grouping = 1  
+    while grouping <= len(arr):  
 
-        for left in range(0, len(arr), skip * 2): 
-            right = min(len(arr), left + 2 * skip) 
-            mid = left + skip
+        for left_iterator in range(0, len(arr), grouping * 2): 
+            right_boundary = min(len(arr), left_iterator + 2 * grouping) 
+            middle_iterator = left_iterator + grouping
             
-            while left < mid and mid < right:
+            while left_iterator < middle_iterator and middle_iterator < right_boundary:
 
-                if arr[left] < arr[mid]: 
-                    left += 1 
+                if arr[left_iterator] < arr[middle_iterator]: 
+                    left_iterator += 1 
                 else: 
-                    temp = arr[mid] 
-                    arr[left + 1: mid + 1] = arr[left:mid] 
-                    arr[left] = temp 
-                    left +=1 
-                    mid +=1
-        skip *= 2
+                    move_to_left_iterator_index = arr[middle_iterator] 
+                    arr[left_iterator + 1: middle_iterator + 1] = arr[left_iterator:middle_iterator] 
+                    arr[left_iterator] = move_to_left_iterator_index 
+                    left_iterator +=1 
+                    middle_iterator +=1
+        grouping *= 2
     return arr
 
 print(merge_sort_in_place([8,3,7,2]))
