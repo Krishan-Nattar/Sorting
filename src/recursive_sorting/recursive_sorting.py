@@ -28,7 +28,8 @@ def merge(arrA, arrB):
     return merged_arr
 
 arr2 = [1,3,7,4,5]
-
+somearr = [3,4,5,7,8,99]
+# print(merge(arr2, somearr))
 
 # Am I supposed to use the helper array in the merge_sort function?! Because I can't figure that out
 
@@ -43,34 +44,34 @@ def merge_sort(arr):
 
         merge_sort(array_left) 
         merge_sort(array_right) 
-
+        return merge(merge_sort(array_left), merge_sort(array_right))
         
-        array_1_index = 0 
-        array_2_index = 0 
-        merged_array_iterator = 0 
-        while array_1_index < len(array_left) and array_2_index < len(array_right): 
-            if array_left[array_1_index] < array_right[array_2_index]: 
-                arr[merged_array_iterator] = array_left[array_1_index]
-                merged_array_iterator += 1
-                array_1_index += 1
-            else:
-                arr[merged_array_iterator] = array_right[array_2_index] 
-                merged_array_iterator += 1
-                array_2_index += 1
-        while array_1_index < len(array_left): 
-            arr[merged_array_iterator] = array_left[array_1_index] 
-            merged_array_iterator += 1
-            array_1_index += 1
-        while array_2_index < len(array_right):
-            arr[merged_array_iterator] = array_right[array_2_index]
-            merged_array_iterator += 1
-            array_2_index += 1
+        # array_1_index = 0 
+        # array_2_index = 0 
+        # merged_array_iterator = 0 
+        # while array_1_index < len(array_left) and array_2_index < len(array_right): 
+        #     if array_left[array_1_index] < array_right[array_2_index]: 
+        #         arr[merged_array_iterator] = array_left[array_1_index]
+        #         merged_array_iterator += 1
+        #         array_1_index += 1
+        #     else:
+        #         arr[merged_array_iterator] = array_right[array_2_index] 
+        #         merged_array_iterator += 1
+        #         array_2_index += 1
+        # while array_1_index < len(array_left): 
+        #     arr[merged_array_iterator] = array_left[array_1_index] 
+        #     merged_array_iterator += 1
+        #     array_1_index += 1
+        # while array_2_index < len(array_right):
+        #     arr[merged_array_iterator] = array_right[array_2_index]
+        #     merged_array_iterator += 1
+        #     array_2_index += 1
+    else:
+        return arr
 
-    return arr
-
-arr3 = [4,3,2,1]
-merge_sort(arr3)
-print("Final array: " +str(arr3)) 
+arr3 = [4,3,2,1,2,3,4]
+print(merge_sort(arr3))
+# print("Final array: " +str(arr3)) 
 
 
 
@@ -97,7 +98,7 @@ def merge_sort_in_place(arr):
         grouping *= 2
     return arr
 
-print(merge_sort_in_place([8,3,7,2]))
+# print(merge_sort_in_place([8,3,7,2]))
 
 
 def merge_in_place(arr, start, mid, end):
