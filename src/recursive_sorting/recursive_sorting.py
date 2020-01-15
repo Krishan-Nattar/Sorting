@@ -31,8 +31,6 @@ arr2 = [1,3,7,4,5]
 somearr = [3,4,5,7,8,99]
 # print(merge(arr2, somearr))
 
-# Am I supposed to use the helper array in the merge_sort function?! Because I can't figure that out
-
 #Merge Sort Function
 def merge_sort(arr):
     if len(arr)>1: 
@@ -41,39 +39,14 @@ def merge_sort(arr):
 
         array_left = arr[:middle] 
         array_right = arr[middle:] 
-
-        merge_sort(array_left) 
-        merge_sort(array_right) 
         return merge(merge_sort(array_left), merge_sort(array_right))
-        
-        # array_1_index = 0 
-        # array_2_index = 0 
-        # merged_array_iterator = 0 
-        # while array_1_index < len(array_left) and array_2_index < len(array_right): 
-        #     if array_left[array_1_index] < array_right[array_2_index]: 
-        #         arr[merged_array_iterator] = array_left[array_1_index]
-        #         merged_array_iterator += 1
-        #         array_1_index += 1
-        #     else:
-        #         arr[merged_array_iterator] = array_right[array_2_index] 
-        #         merged_array_iterator += 1
-        #         array_2_index += 1
-        # while array_1_index < len(array_left): 
-        #     arr[merged_array_iterator] = array_left[array_1_index] 
-        #     merged_array_iterator += 1
-        #     array_1_index += 1
-        # while array_2_index < len(array_right):
-        #     arr[merged_array_iterator] = array_right[array_2_index]
-        #     merged_array_iterator += 1
-        #     array_2_index += 1
+
     else:
+        # pass
         return arr
 
-arr3 = [4,3,2,1,2,3,4]
+arr3 = [4,3,2,1]
 print(merge_sort(arr3))
-# print("Final array: " +str(arr3)) 
-
-
 
 # STRETCH: implement an in-place merge sort algorithm
 
