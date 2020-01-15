@@ -33,8 +33,8 @@ def selection_sort(arr):
 # TO-DO:  implement the Bubble Sort function below
 def bubble_sort(arr):
     # index = 0
-    loop = True
-    count = 0
+    # count = 0
+    # loop = True
 
     while loop:
         count = 0
@@ -45,7 +45,8 @@ def bubble_sort(arr):
                 arr[i+1] = hold_value
                 count += 1
         if count == 0:
-            loop = False
+            # loop = False
+            break
 
     # select item
 
@@ -73,7 +74,6 @@ def count_sort(arr, maximum=-1):
     maximum = max(arr)
     count_array = []
     return_arr = []
-    # print(maximum)
     for i in range(0, maximum +1):
         count = arr.count(i)
         count_array.append([i, count])
@@ -81,10 +81,6 @@ def count_sort(arr, maximum=-1):
         while i[1] > 0:
             return_arr.append(i[0])
             i[1] -= 1
+    return return_arr
 
-    # print(count_array)
-    # print(return_arr)
-
-    return arr
-
-# count_sort(num_array)
+print(count_sort(num_array))
