@@ -26,7 +26,6 @@ def selection_sort(arr):
 
     return arr
 
-
 # print(selection_sort(num_array))
 
 
@@ -65,22 +64,47 @@ def bubble_sort(arr):
 num_array2 = [1,4,1,2,7,5,2]
 # STRETCH: implement the Count Sort function below
 
-
-
-# [[0, 0], [1, 2], [2, 2], [3, 0], [4, 1], [5, 1], [6, 0], [7, 1]]
-
+# loop through, check for instance, increment
 
 def count_sort(arr, maximum=-1):
-    maximum = max(arr)
+    maximum = max(arr) # loop 1
     count_array = []
     return_arr = []
-    for i in range(0, maximum +1):
+    for i in range(0, maximum +1): # loop 2
         count = arr.count(i)
         count_array.append([i, count])
-    for i in count_array:
+    # print(count_array)
+    for i in count_array: # loop 3
         while i[1] > 0:
             return_arr.append(i[0])
             i[1] -= 1
     return return_arr
 
-print(count_sort(num_array))
+# Alternative using a dictionary
+def count_sort2(arr, maximum=-1):
+
+    count_array = {}
+    return_arr = []
+    lowest = arr[0]
+    highest = arr[0]
+
+    for i in arr:
+        if i < lowest:
+            lowest = i
+        if i > highest:
+            highest = i
+        if str(i) in count_array.keys(): 
+            count_array[str(i)] += 1
+        else:
+            count_array[str(i)] = 1
+    for i in range(lowest, highest+1):
+        while str(i) in count_array.keys(): 
+            count_array[str(i)] -= 1
+            return_arr.append(i)
+            if count_array[str(i)] == 0:
+                break
+    return return_arr
+
+print(count_sort2(num_array))
+
+
