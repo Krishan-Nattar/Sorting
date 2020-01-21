@@ -1,5 +1,7 @@
 # TO-DO: complete the helper function below to merge 2 sorted arrays
 def merge(arrA, arrB):
+    # This whole thing could probably be simplified using append(pop())
+    # But would popping index 0 of an array be efficient?
     elements = len(arrA) + len(arrB)
     merged_arr = [0] * elements
 
@@ -7,6 +9,7 @@ def merge(arrA, arrB):
     array_2_index = 0
     merged_array_iterator = 0
 
+    
     while array_1_index < len(arrA) and array_2_index < len(arrB):
         if arrA[array_1_index] < arrB[array_2_index]:
             merged_arr[merged_array_iterator] = arrA[array_1_index]
@@ -17,6 +20,7 @@ def merge(arrA, arrB):
             merged_array_iterator += 1
             array_2_index += 1
     while array_1_index < len(arrA):
+        # if it gets to this point, if I'm doing append/pop, I can append the rest of the array and end it
         merged_arr[merged_array_iterator] = arrA[array_1_index]
         merged_array_iterator += 1
         array_1_index += 1

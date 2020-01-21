@@ -35,15 +35,17 @@ def bubble_sort(arr):
     # count = 0
     # loop = True
 
-    while loop:
-        count = 0
-        for i in range(0, len(arr)-1):
+    while True:
+        swapped = False
+        iteration = 0
+        for i in range(0, len(arr)-1 - iteration):
             if arr[i] > arr[i+1]:
                 hold_value = arr[i]
                 arr[i] = arr[i+1]
                 arr[i+1] = hold_value
-                count += 1
-        if count == 0:
+                swapped = True
+                iteration += 1
+        if swapped == False:
             # loop = False
             break
 
