@@ -20,7 +20,7 @@ def merge(arrA, arrB):
             merged_array_iterator += 1
             array_2_index += 1
     while array_1_index < len(arrA):
-        # if it gets to this point, if I'm doing append/pop, I can append the rest of the array and end it
+        # optimize by appending the rest of the array and breaking out of while loop
         merged_arr[merged_array_iterator] = arrA[array_1_index]
         merged_array_iterator += 1
         array_1_index += 1

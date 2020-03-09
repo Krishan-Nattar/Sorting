@@ -26,42 +26,23 @@ def selection_sort(arr):
 
     return arr
 
-# print(selection_sort(num_array))
-
-
 # TO-DO:  implement the Bubble Sort function below
 def bubble_sort(arr):
-    # index = 0
-    # count = 0
-    # loop = True
 
     while True:
         swapped = False
-        iteration = 0
-        for i in range(0, len(arr)-1 - iteration):
+        # iteration = 0
+        for i in range(0, len(arr)-1 - i):
             if arr[i] > arr[i+1]:
                 hold_value = arr[i]
                 arr[i] = arr[i+1]
                 arr[i+1] = hold_value
                 swapped = True
-                iteration += 1
+                # iteration += 1
         if swapped == False:
-            # loop = False
             break
 
-    # select item
-
-    # check current value vs the next item
-
-    # if second item is smaller, switch the values
-
-    # move onto the next item
-
-    # repeat
-
     return arr
-# print(num_array)
-# print(bubble_sort(num_array))
 
 num_array2 = [1,4,1,2,7,5,2]
 # STRETCH: implement the Count Sort function below
@@ -85,7 +66,7 @@ def count_sort(arr, maximum=-1):
 # Alternative using a dictionary
 def count_sort2(arr, maximum=-1):
 
-    count_array = {}
+    count_dict = {}
     return_arr = []
     lowest = arr[0]
     highest = arr[0]
@@ -95,18 +76,17 @@ def count_sort2(arr, maximum=-1):
             lowest = i
         if i > highest:
             highest = i
-        if str(i) in count_array.keys(): 
-            count_array[str(i)] += 1
+        if str(i) in count_dict.keys(): 
+            count_dict[str(i)] += 1
         else:
-            count_array[str(i)] = 1
+            count_dict[str(i)] = 1
+            
     for i in range(lowest, highest+1):
-        while str(i) in count_array.keys(): 
-            count_array[str(i)] -= 1
+        while str(i) in count_dict.keys(): 
+            count_dict[str(i)] -= 1
             return_arr.append(i)
-            if count_array[str(i)] == 0:
+            if count_dict[str(i)] == 0:
                 break
     return return_arr
 
 print(count_sort2(num_array))
-
-
